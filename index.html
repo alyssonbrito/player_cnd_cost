@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="https://cdn.bitmovin.com/player/web/8/bitmovinplayer.js"></script>
+    <script type="text/javascript" src="https://cdn.bitmovin.com/analytics/web/beta/2/bitmovinanalytics.min.js"></script>
+    <link href="./css/style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+    <div class="notes" id="notes">
+        <li>Match codecs to browsers dynamically</li>
+        <li>50% bandwidth savings or more</li>
+        <li>Deliver the best quality possible for each user, based on their browser</li>
+        </ul>
+        <a href="//bitmovin-a.akamaihd.net/webpages/demo-fw/multi-codec/browser-usage.png" data-featherlight="image" title="Browser Usage">
+            <span class="btn btn-outline-primary">Browser Usage</span>
+        </a>
+        <p>Detected <span id="detected-browser"></span>, using <span class="selected-codec"></span></p>
+
+    </div>
+    <div class="player-wrapper" width="360px" height="320px">
+        <div class="player" width="360" height="320">
+            <div id="player-container" width="30%" height="30%"></div>
+        </div>
+    </div>
+    <div class="graphic" id="graphic">
+        <canvas height="110px" id="chart-container"></canvas>
+    </div>
+    <div class="statistics" id="statistics">
+        <div class="bitrate">
+            <h4>Bitrate</h4>
+        </div>
+        <div class="performance"></div>
+        <h4>Performance</h4>
+        <table id="stats-table">
+            <tbody>
+                <tr>
+                    <td><span class="selected-codec"></span> Segment Data</td>
+                    <td><span id="selected-codec-request-data">0</span> MB</td>
+                </tr>
+                <tr>
+                    <td><span id="compare-codec"></span> Segment Data</td>
+                    <td><span id="compare-codec-request-data">0</span> MB</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>Savings</td>
+                    <td><span id="savings-percentage">0</span> %</td>
+                </tr>
+                <tr class="strong">
+                    <td>Cost reduction*</td>
+                    <td><span id="cost-reduction">0</span> USD</td>
+                </tr>
+            </tfoot>
+        </table>
+
+    </div>
+    <div class="rodape">
+        <h4>Performance</h4>
+        <div>* assuming 1,000,000 Views and 0.025 USD Distribution Cost per GB</div>
+    </div>
+</body>
+<script type="text/javascript" src="./js/browser.js"></script>
+<script type="text/javascript" src="./js/demo.js"></script>
+
+</html>
