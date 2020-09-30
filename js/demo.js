@@ -528,27 +528,21 @@ var multicodec = function() {
     };
 
     var source = {
-        //dash: '//bitmovin-a.akamaihd.net/webpages/demos/content/multi-codec/h264/stream.mpd',
+        //default H.264
         dash: '//bitmovin-a.akamaihd.net/content/multi-codec/h264/stream.mpd',
         poster: 'images/comparison.jpg'
     };
 
-    //if (browser === BROWSER.CHROME || browser === BROWSER.FIREFOX) {
     if ((browser === BROWSER.CHROME || browser === BROWSER.FIREFOX)) {
         selectedCodec = CODEC.VP9;
-        //source.dash = '//bitmovin-a.akamaihd.net/webpages/demos/content/multi-codec/vp9/stream.mpd';
         source.dash = '//bitmovin-a.akamaihd.net/content/multi-codec/vp9/stream.mpd';
     } else if (browser === BROWSER.EDGEX) {
         selectedCodec = CODEC.H265;
-        //source.dash = '//bitmovin-a.akamaihd.net/webpages/demos/content/multi-codec/hevc/stream.mpd';
         source.dash = '//bitmovin-a.akamaihd.net/content/multi-codec/hevc/stream.mpd';
     } else if (browser === BROWSER.SAFARI) {
+        // HLS would be better
         selectedCodec = CODEC.H265;
-        //source.dash = '//bitmovin-a.akamaihd.net/webpages/demos/content/multi-codec/hevc/stream_fmp4.m3u8';
         source.dash = '//bitmovin-a.akamaihd.net/content/multi-codec/hevc/stream.mpd';
-        //document.getElementById('stats-panels-wrapper').style.display = 'none'; //hiding the performance box as we do not get this data from safari
-        //document.getElementById('statistics').style.display = 'none'; //hiding the performance box as we do not get this data from safari
-        //document.getElementById('graphic').style.display = 'none'; //hiding the performance box as we do not get this data from safari
     }
 
     var selectedCodecElements = document.getElementsByClassName('selected-codec');
@@ -583,8 +577,6 @@ var multicodec = function() {
 
     setupChart();
 };
-
-//$(document).ready(multicodec);
 
 if (document.readyState === "complete" || (document.readyState !== "loading" &&
         !document.documentElement.doScroll)) {
